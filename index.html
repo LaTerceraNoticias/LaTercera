@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Noticias - Tercera Sección (PBA)</title>
+  <meta name="description" content="Portal de noticias políticas de la Tercera Sección electoral de la provincia de Buenos Aires. Cobertura: resultados, denuncias e información local." />
+  <style>
+    :root{
+      --bg:#f6f7f9; --card:#ffffff; --muted:#6b7280; --accent:#0b3d91; --accent-2:#0a58a8;
+      --maxw:1100px; --radius:12px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{background:var(--bg); color:#0f1724; margin:0; padding:24px; display:flex; justify-content:center}
+    .wrap{max-width:var(--maxw); width:100%; display:grid; grid-template-columns: 1fr 320px; gap:20px}
+
+    header{grid-column:1/3; display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:64px; height:64px; display:inline-block}
+    .title{font-size:20px; font-weight:700; color:var(--accent)}
+    .subtitle{font-size:13px; color:var(--muted)}
+
+    main{background:transparent}
+    .cards{display:grid; gap:14px}
+    .card{background:var(--card); padding:18px; border-radius:var(--radius); box-shadow:0 4px 10px rgba(13,24,40,0.06); border:1px solid rgba(11,61,145,0.04)}
+    .card h2{margin:0 0 6px 0; font-size:18px}
+    .card p{margin:0; color:var(--muted); font-size:14px}
+    .meta{font-size:13px; color:var(--muted); margin-top:8px}
+    .readmore{display:inline-block; margin-top:12px; text-decoration:none; color:var(--accent-2); font-weight:600}
+
+    /* Detail view */
+    .detail{background:var(--card); padding:22px; border-radius:var(--radius); box-shadow:0 6px 18px rgba(13,24,40,0.06); display:none}
+    .detail.active{display:block}
+    .detail .lead{font-size:15px; color:var(--muted); margin-bottom:12px}
+    .detail .content{line-height:1.6}
+
+    /* Sidebar */
+    aside{height:fit-content}
+    .ad{background:linear-gradient(180deg,#e9eef9,#ffffff); border-radius:12px; padding:12px; border:1px solid rgba(11,61,145,0.06)}
+    .ad h4{margin:0 0 8px 0; font-size:14px}
+    .ad p{margin:0; color:var(--muted); font-size:13px}
+
+    .small{font-size:12px; color:var(--muted)}
+
+    footer{grid-column:1/3; margin-top:18px; color:var(--muted); font-size:13px}
+
+    /* Accessibility */
+    a:focus{outline:3px solid #b6d1ff; outline-offset:3px}
+
+    @media (max-width:980px){.wrap{grid-template-columns:1fr} aside{order:2} header{flex-direction:column; align-items:flex-start} .logo{width:56px;height:56px}}
+  </style>
+</head>
+<body>
+  <div class="wrap" role="application">
+    <header>
+      <div class="brand" aria-hidden="false">
+        <!-- Inline SVG logo (formal, simple) -->
+        <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo Noticias Tercera Sección">
+          <rect x="6" y="6" width="88" height="88" rx="14" fill="#0b3d91" />
+          <path d="M24 72 L40 36 L56 72 Z" fill="#fff"/>
+          <rect x="62" y="28" width="10" height="40" rx="2" fill="#fff" />
+        </svg>
+        <div>
+          <div class="title">Noticias - Tercera Sección</div>
+          <div class="subtitle">Cobertura política local · Provincia de Buenos Aires</div>
+        </div>
+      </div>
+      <div class="small">Diseño formal · Fuente: escrutinio oficial y reportes locales</div>
+    </header>
+
+    <main>
+      <section id="list" aria-live="polite">
+        <div class="cards">
+          <!-- Card 1: Resultados generales (principal) -->
+          <article class="card" data-id="1">
+            <h2>Resultados: el peronismo se impone en la Provincia de Buenos Aires</h2>
+            <p>Con la casi totalidad de las mesas escrutadas, la coalición opositora obtuvo una ventaja significativa en la Provincia: alrededor del 47% contra ~34% de la fuerza oficialista. El resultado modifica la correlación de fuerzas para el año electoral.</p>
+            <div class="meta">07 Septiembre 2025 · Política provincial</div>
+            <a href="#" class="readmore" data-open="1">Leer nota completa →</a>
+          </article>
+
+          <!-- Card 2: Lugar con mayor diferencia -->
+          <article class="card" data-id="2">
+            <h2>La Tercera Sección y los municipios con mayor diferencia</h2>
+            <p>En lugares como Brandsen, Magdalena y Punta Indio se registraron márgenes destacables que explican la fuerte performance de la coalición ganadora en la Sección.</p>
+            <div class="meta">07 Septiembre 2025 · Tercera Sección</div>
+            <a href="#" class="readmore" data-open="2">Leer nota completa →</a>
+          </article>
+
+          <!-- Card 3: Denuncias e irregularidades -->
+          <article class="card" data-id="3">
+            <h2>Denuncias por demoras, falta de boletas y problemas en el padrón</h2>
+            <p>Durante la jornada se reportaron demoras en aperturas de mesas, falta de boletas en centros de votación y fallas en la consulta digital del padrón; diversas agrupaciones presentaron denuncias formales ante la Junta Electoral.</p>
+            <div class="meta">07 Septiembre 2025 · Incidentes en jornada</div>
+            <a href="#" class="readmore" data-open="3">Leer nota completa →</a>
+          </article>
+
+          <!-- Card 4: Crítica al rendimiento del radicalismo -->
+          <article class="card" data-id="4">
+            <h2>Críticas al bajo rendimiento del radicalismo en la Tercera Sección</h2>
+            <p>Dirigentes y analistas señalaron que la UCR tuvo un desempeño muy reducido en varios distritos de la Tercera Sección, generando cuestionamientos sobre su estrategia local y su vínculo con otras fuerzas.</p>
+            <div class="meta">08 Septiembre 2025 · Análisis político</div>
+            <a href="#" class="readmore" data-open="4">Leer nota completa →</a>
+          </article>
+
+		<!-- Card 5: Crítica al rendimiento del radicalismo -->
+          <article class="card" data-id="5">
+            <h2>En Brandsen no hubo ganadores: </h2>
+            <p>La Cámpora de Raitelli fue la gran derrotada</p>
+            <div class="meta">10 Septiembre 2025 · Análisis político</div>
+            <a href="#" class="readmore" data-open="5">Leer nota completa →</a>
+          </article>
+		  
+		  
+        </div>
+      </section>
+
+      <!-- Detail area (single-page) -->
+      <section id="detail" class="detail" aria-hidden="true">
+        <button id="back" aria-label="Volver a la lista" style="background:none;border:none;color:var(--accent-2);font-weight:700;cursor:pointer">← Volver a la lista</button>
+        <h1 id="d-title"></h1>
+        <div class="lead" id="d-lead"></div>
+        <div class="content" id="d-content"></div>
+        <div class="meta" id="d-meta"></div>
+      </section>
+    </main>
+
+    <aside>
+      <div class="ad" role="complementary" aria-label="Publicidad lateral">
+        <h4>Publicidad</h4>
+        <img src="publicidad.jpeg"> </img>
+        <p style="margin-top:12px; font-size:12px; color:var(--muted)">Contacto: laterceranoticias@yahoo.com</p>
+      </div>
+
+      <div class="ad" role="complementary" aria-label="Publicidad lateral">
+        <h4>Publicidad</h4>
+        <p>Este espacio está disponible para avisos institucionales y campañas locales. Tamaño recomendado: 300 × 250 px.</p>
+        <p style="margin-top:12px; font-size:12px; color:var(--muted)">Contacto: laterceranoticias@yahoo.com</p>
+      </div>
+
+
+      <div style="height:14px"></div>
+
+      <div class="card small" style="padding:12px">
+        <strong>Datos de interés</strong>
+        <p style="margin:8px 0 0 0;">La Tercera Sección agrupa 19 municipios del sur del conurbano. Fuente: recuento oficial.</p>
+      </div>
+    </aside>
+
+    <footer>
+      Portal independiente de noticias políticas · Última actualización: 08/09/2025 · Diseño accesible y responsive.
+    </footer>
+  </div>
+
+<script>
+  const articles = {
+    1: {
+      title: 'Resultados: el peronismo se impone en la Provincia de Buenos Aires',
+      lead: 'Con la casi totalidad de las mesas escrutadas, la coalición opositor obtuvo una ventaja clara sobre la fuerza oficialista en la provincia.',
+      meta: '07 Septiembre 2025 · Política provincial',
+      content: `En el escrutinio definitivo la coalición opositora alcanzó cerca del 47% de los votos frente al ~34% de la fuerza oficialista. El resultado será determinante para la conformación de bancas en la Legislatura provincial y reconfigura el mapa político hacia las elecciones nacionales.`
+    },
+    2: {
+      title: 'La Tercera Sección y los municipios con mayor diferencia',
+      lead: 'Algunos municipios ubicados en la Tercera Sección mostraron márgenes decisivos que ayudaron a la victoria provincial.',
+      meta: '07 Septiembre 2025 · Tercera Sección',
+      content: `En distritos como Brandsen, Magdalena y Punta Indio la ventaja fue ampliamente favorable para la coalición ganadora. Esos resultados locales explican en parte la diferencia global a favor del peronismo en la Provincia.`
+    },
+    3: {
+      title: 'Denuncias por demoras, falta de boletas y problemas en el padrón',
+      lead: 'Durante la jornada electoral se registraron distintas denuncias que las autoridades electorales deberán resolver.',
+      meta: '07 Septiembre 2025 · Incidentes en jornada',
+      content: `Sectores de la ciudadanía y partidos políticos consignaron demoras en la apertura de mesas, falta puntual de boletas en algunas escuelas y problemas de consulta en la web del padrón. Las denuncias fueron formalizadas ante la Junta Electoral para su investigación.`
+    },
+    4: {
+      title: 'Críticas al bajo rendimiento del radicalismo en la Tercera Sección',
+      lead: 'Dirigentes de distintas fuerzas y analistas cuestionaron la estrategia del radicalismo a nivel seccional.',
+      meta: '08 Septiembre 2025 · Análisis político',
+      content: `La Unión Cívica Radical cosechó resultados modestos en varios distritos de la Tercera Sección, lo que abrió cuestionamientos internos sobre el armado de listas y la estrategia territorial. Analistas advierten la necesidad de una reconstrucción local si se busca recuperar representación.`
+    },
+    5: {
+      title: 'En Brandsen no hubo ganadores: La Cámpora de Raitelli fue la gran derrotada',
+      lead: 'Las elecciones del domingo 7 de septiembre en Brandsen dejaron una evidencia irrefutable: a pesar del despliegue de aparato político y del “efecto arrastre” provincial, La Cámpora perdió terreno.',
+      meta: '10 Septiembre 2025 · Análisis político',
+      content: 'Resultados comparativos\nOctubre 2023 – Fernando Raitelli (La Cámpora / Unión por la Patria) ganó la intendencia con el 41,46 % de los votos, frente al 37,41 % obtenido por Juntos por el Cambio.\nSeptiembre 2025 – Gastón Poncetta (Fuerza Patria, espacio vinculado al oficialismo local) logró apenas el 39,3 % de los votos en Brandsen.\nConclusión rabiosa: con más estructuras, recursos y apoyo político detrás, obtuvieron menos votos que en 2023. Eso no es retroceso: es derrota con montaje.\n\nConsecuencias políticas concretas\nMantienen 6 bancas en el Concejo Deliberante, pero solo 5 responden a La Cámpora, ya que Bronicardi sostiene un monobloque independiente alineado al axelismo, fuera del bloque camporista.\nEn cambio, la oposición avanzó: 3 concejales de La Libertad Avanza, más radicales sumados a Juntos, conforman un bloque con suficiente fuerza para bloquear o condicionar cualquier intento de resolución camporista.\nSolo lograron mantener el control del Consejo Escolar, un logro simbólico pero insuficiente frente a su real pérdida de respaldo en el Concejo.\n\nEditorial fuerte con datos: Pusieron todo: campaña, estructura, intendente, “ola celeste”… y aun así retrocedieron en votos respecto a 2023. Esa no es la marca de una fuerza segura, sino de una con gestión en crisis y desconexión con su electorado. La Cámpora de Raitelli ya no gobierna con margen; enfrenta un Concejo dividido donde cualquier iniciativa puede ser truncada. El poder real se mide en números, y en ellos, esta vez salieron perdiendo.'
+
+
+    }
+	}
+
+  document.querySelectorAll('.readmore').forEach(el=>{
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      const id = this.getAttribute('data-open');
+      openDetail(id);
+    })
+  });
+
+  document.getElementById('back').addEventListener('click', function(){
+    document.getElementById('detail').classList.remove('active');
+    document.getElementById('detail').setAttribute('aria-hidden','true');
+    document.getElementById('list').style.display = 'block';
+    window.history.pushState({},'',window.location.pathname);
+  });
+
+  function openDetail(id){
+    const a = articles[id];
+    document.getElementById('d-title').textContent = a.title;
+    document.getElementById('d-lead').textContent = a.lead;
+    document.getElementById('d-content').textContent = a.content;
+    document.getElementById('d-meta').textContent = a.meta;
+
+    document.getElementById('list').style.display = 'none';
+    document.getElementById('detail').classList.add('active');
+    document.getElementById('detail').setAttribute('aria-hidden','false');
+    window.history.pushState({id},'',`#nota-${id}`);
+  }
+
+  if(window.location.hash){
+    const m = window.location.hash.match(/nota-(\d+)/);
+    if(m){ openDetail(m[1]); }
+  }
+</script>
+</body>
+</html>
